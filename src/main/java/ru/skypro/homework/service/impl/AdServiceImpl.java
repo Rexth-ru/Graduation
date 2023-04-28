@@ -9,6 +9,7 @@ import ru.skypro.homework.dto.CreateAds;
 import ru.skypro.homework.dto.FullAds;
 import ru.skypro.homework.dto.ResponseWrapperAds;
 import ru.skypro.homework.exception.NotFoundException;
+import ru.skypro.homework.exception.UnauthorizedException;
 import ru.skypro.homework.model.Ad;
 import ru.skypro.homework.model.UserEntity;
 import ru.skypro.homework.repository.AdRepository;
@@ -65,10 +66,12 @@ public class AdServiceImpl implements AdService {
     }
 
     @Override
-    public void updateAvatarImage(Integer id, MultipartFile avatar) throws IOException {
-        Ad ad = adRepository.findById(id).orElseThrow(NotFoundException::new);
-        ad.setImage(avatarService.uploadAvatar(avatar));
-        adRepository.save(ad);
+    public void updateAvatarImage(Integer id, MultipartFile avatar, Authentication authentication) throws IOException {
+        if (authentication.isAuthenticated()){
+           Ad ad = adRepository.findById(id).orElseThrow(NotFoundException::new);
+           ad.setImage(avatarService.uploadAvatar(avatar));
+           adRepository.save(ad);
+    }throw new UnauthorizedException();
     }
 
     @Override

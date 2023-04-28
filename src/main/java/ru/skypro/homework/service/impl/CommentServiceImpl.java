@@ -58,4 +58,8 @@ public class CommentServiceImpl implements CommentService {
     public CommentEntity getByIdAndAdId(Integer commentId, Integer adId) {
         return commentRepository.findCommentEntityByIdAndAd_Id(commentId, adId).orElseThrow(NotFoundException::new);
     }
+    @Override
+    public CommentEntity getById(Integer commentId){
+return commentRepository.findById(commentId).orElseThrow(NotFoundException::new);
+    }
 }

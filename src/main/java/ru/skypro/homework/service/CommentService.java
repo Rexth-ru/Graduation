@@ -15,4 +15,5 @@ public interface CommentService {
     ResponseWrapperComment getComments(Integer id);
 
     CommentEntity getByIdAndAdId(Integer commentId, Integer adId);
+    CommentEntity getById(Integer commentId);
 }

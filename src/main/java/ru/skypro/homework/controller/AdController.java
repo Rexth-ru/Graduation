@@ -118,9 +118,8 @@ public class AdController {
             }
     )
     @PatchMapping(value = "/{id}/image", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-//    @RolesAllowed({"USER", "ADMIN"})
-    public ResponseEntity<?> updateImage(@RequestParam Integer id, @RequestPart("image") MultipartFile avatar) throws IOException {
-adService.updateAvatarImage(id, avatar);
+    public ResponseEntity<?> updateImage(@RequestParam Integer id, @RequestPart("image") MultipartFile avatar, Authentication authentication) throws IOException {
+adService.updateAvatarImage(id, avatar, authentication);
             return ResponseEntity.ok().build();
     }
     @Operation(

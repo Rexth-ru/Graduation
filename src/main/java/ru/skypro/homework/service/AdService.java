@@ -20,7 +20,7 @@ public interface AdService {
 
     ResponseWrapperAds getAdsMe(Authentication authentication);
 
-    void updateAvatarImage(Integer id, MultipartFile avatar) throws IOException;
+    void updateAvatarImage(Integer id, MultipartFile avatar,Authentication authentication) throws IOException;
 
     void deleteAdById(Integer id);
 

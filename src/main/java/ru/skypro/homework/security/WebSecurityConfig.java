@@ -22,10 +22,7 @@ public class WebSecurityConfig {
             "/login",
             "/register",
             "/ads",
-//            "/ads/*",
-            "/ads/image/*",
-//            "/ads/avatar/*",
-//            "/users/avatar/*"
+            "/avatar/**"
     };
 
     @Bean
