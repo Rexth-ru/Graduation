@@ -25,7 +25,7 @@ public class User {
         user.setPassword(userEntity.getPassword());
         user.setRole(userEntity.getRole());
         user.setFirstName(userEntity.getFirstName());
-        user.setLastName(user.getLastName());
+        user.setLastName(userEntity.getLastName());
         user.setPhone(userEntity.getPhone());
         user.setImage(userEntity.getImage());
         return user;
